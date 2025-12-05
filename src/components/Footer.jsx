@@ -57,7 +57,7 @@ export default function Footer() {
 
                             <div className="flex justify-center">
                                 <img 
-                                    src="/momo.jpg" 
+                                    src="./momo.jpg" 
                                     alt="MoMo QR Code" 
                                     className="w-64 h-64 rounded-xl shadow-lg object-cover"
                                 />
