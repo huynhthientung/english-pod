@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-zinc-50 to-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 font-sans transition-colors duration-300;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/40 dark:border-zinc-800/50 shadow-lg shadow-zinc-200/50 dark:shadow-black/50;
+}
+
+.glass-card {
+  @apply bg-white/60 dark:bg-zinc-900/60 backdrop-blur-lg border border-white/50 dark:border-zinc-700/30 hover:bg-white/80 dark:hover:bg-zinc-800/80 transition-all duration-300 shadow-sm hover:shadow-md;
+}
