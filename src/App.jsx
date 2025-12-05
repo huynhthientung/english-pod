@@ -47,7 +47,7 @@ function AppContent() {
             <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
               EnglishPod
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Modern Learning Experience</p>
+            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Learn English through 300+ conversations at various levels.</p>
           </div>
           <div className="hidden lg:block">
             <ThemeToggle />
