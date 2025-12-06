@@ -1,15 +1,5 @@
 [
   {
-    "id": 0,
-    "original_title": "0. Rock FM Stream (enjoy ^^)",
-    "title": "Rock FM Stream (enjoy ^^)",
-    "level": "Unknown",
-    "mp3": "https://rockfm.rockfm.com.tr:9450/stream",
-    "poster": "https://i1.sndcdn.com/artworks-000231297698-mkthbe-t500x500.jpg",
-    "transcript_id": "stream",
-    "transcript_url": "https://archive.org/download/englishpod_all/stream.html"
-  },
-  {
     "id": 1,
     "original_title": "1. Elementary - Difficult Customer",
     "title": "Difficult Customer",

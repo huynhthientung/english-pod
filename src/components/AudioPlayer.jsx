@@ -14,10 +14,17 @@ const AudioPlayer = ({ episode }) => {
         setIsPlaying(false);
         setProgress(0);
         if (audioRef.current) {
-            audioRef.current.load();
-            // Auto play could be annoying, let's wait for user
-            // audioRef.current.play();
-            // setIsPlaying(true);
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        setIsPlaying(true);
+                    })
+                    .catch(error => {
+                        console.log("Autoplay prevented:", error);
+                        setIsPlaying(false);
+                    });
+            }
         }
     }, [episode.id]);
 

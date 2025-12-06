@@ -47,7 +47,7 @@ const EpisodeList = ({ episodes, currentId, onSelect }) => {
                             "w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors",
                             ep.id === currentId ? "bg-indigo-600 text-white" : "bg-zinc-200 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
                         )}>
-                            {ep.id === currentId ? <PlayCircle size={20} /> : <span className="text-xs font-bold font-mono">{ep.id + 1}</span>}
+                            {ep.id === currentId ? <PlayCircle size={20} /> : <span className="text-xs font-bold font-mono">{ep.id}</span>}
                         </div>
                         <div className="flex-1 min-w-0">
                             <h3 className={classNames("text-sm font-medium truncate transition-colors", ep.id === currentId ? "text-indigo-700 dark:text-indigo-200" : "text-zinc-700 dark:text-zinc-300")}>

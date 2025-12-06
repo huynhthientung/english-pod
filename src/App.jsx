@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 import episodesData from './data/episodes.json'
 
 function AppContent() {
-  const [currentEpisodeId, setCurrentEpisodeId] = useState(0);
+  const [currentEpisodeId, setCurrentEpisodeId] = useState(episodesData[0]?.id || 0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const currentEpisode = useMemo(() =>
@@ -44,9 +44,12 @@ function AppContent() {
       `}>
         <div className="p-6 border-b border-zinc-200 dark:border-zinc-800/50 flex justify-between items-center bg-white/50 dark:bg-transparent">
           <div>
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
-              EnglishPod
-            </h1>
+            <div className="flex items-center gap-3 mb-2">
+              <img src="/logo.jpg" alt="EnglishPod Logo" className="w-10 h-10 rounded-full object-cover shadow-md" />
+              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
+                EnglishPod
+              </h1>
+            </div>
             <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Learn English through 300+ conversations at various levels.</p>
           </div>
           <div className="hidden lg:block">
@@ -66,6 +69,13 @@ function AppContent() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col relative w-full lg:w-auto h-full overflow-hidden bg-white/30 dark:bg-transparent">
+
+        {/* Motivational Banner */}
+        <div className="w-full text-center py-2 bg-indigo-50 dark:bg-indigo-900/20 border-b border-indigo-100 dark:border-indigo-900/30">
+          <p className="text-xs lg:text-sm font-medium text-indigo-800 dark:text-indigo-200 px-4">
+            You are building something great! Mastering English takes patience, but you have the power. Keep going, and never stop challenging yourself.
+          </p>
+        </div>
 
         {/* Transcript Area (Scrollable) */}
         <div className="flex-1 overflow-y-auto scroll-smooth">
@@ -98,7 +108,7 @@ function AppContent() {
         </div>
 
       </div>
-    </div>
+    </div >
   )
 }
 

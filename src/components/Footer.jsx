@@ -10,9 +10,9 @@ export default function Footer() {
             <footer className="mt-0 py-4 border-t border-zinc-200/50 dark:border-zinc-700/30 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left transition-colors max-w-4xl mx-auto px-4 lg:px-6">
 
                 <div className="text-sm text-zinc-500 dark:text-zinc-500">
-                    <p>&copy; {new Date().getFullYear()} EnglishPod Modern. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} EnglishPod. All rights reserved.</p>
                     <p className="mt-1 flex items-center justify-center md:justify-start gap-1">
-                        Made with <Heart size={12} className="text-red-500 fill-red-500" /> by TungHT
+                        Made with <Heart size={12} className="text-red-500 fill-red-500" /> by Huynh Thien Tung
                     </p>
                 </div>
 
@@ -28,11 +28,11 @@ export default function Footer() {
 
             {/* Dialog - Using Portal to render at body level */}
             {showDialog && createPortal(
-                <div 
+                <div
                     className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200"
                     onClick={() => setShowDialog(false)}
                 >
-                    <div 
+                    <div
                         className="relative bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl p-6 w-full max-w-sm animate-in zoom-in-95 duration-200"
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -56,9 +56,9 @@ export default function Footer() {
                             </p>
 
                             <div className="flex justify-center">
-                                <img 
-                                    src="./momo.jpg" 
-                                    alt="MoMo QR Code" 
+                                <img
+                                    src="./momo.jpg"
+                                    alt="MoMo QR Code"
                                     className="w-64 h-64 rounded-xl shadow-lg object-cover"
                                 />
                             </div>

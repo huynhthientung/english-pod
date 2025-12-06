@@ -8,6 +8,7 @@ I have successfully modernized the English Podcast application. The new app is b
 - **Glassmorphism Design**: Sleek, dark-themed UI with translucent panels and gradients.
 - **Responsive Layout**: Works seamlessly on desktop (split view) and mobile (stacked view with sidebar).
 - **Interactive Components**: Searchable episode list, custom audio player, and integrated transcript viewer.
+    - **Note**: Episode list now correctly displays 1-based indexing matching the data.
 
 ### 2. Audio Player with Subtitles
 - **Custom Player**: Replaced `jPlayer` with a custom HTML5-based player featuring progress logic and volume controls.
@@ -19,11 +20,13 @@ I have successfully modernized the English Podcast application. The new app is b
 - **Persistent Preference**: Your theme choice is saved in local storage.
 
 ### 4. Data Migration & Offline Capability
-- **Structured Data**: Extracted 366 episodes from the legacy `script.js` into `src/data/episodes.json`.
+- **Structured Data**: Extracted episodes from the legacy `script.js` into `src/data/episodes.json` (Removed non-functional "Rock FM" stream and re-indexed IDs).
 - **Pre-fetched Transcripts**: Downloaded all transcripts from `archive.org` to `public/transcripts/` to ensure they load reliably without CORS errors or broken external links.
 
 ### 5. Community & Support
+- **Motivational Banner**: Added a top banner with an encouraging message to keep learners motivated.
 - **Footer**: Added a responsive footer with copyright info and a "Buy Me a Coffee" link.
+- **Branding**: Updated the sidebar header to display the official logo (`logo.jpg`) and updated the website favicon.
 
 ## Verification Results
 
