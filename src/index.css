@@ -2,16 +2,66 @@
 @config "../tailwind.config.js";
 
 @layer base {
-  body {
-    @apply bg-gradient-to-b from-zinc-50 to-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 font-sans transition-colors duration-300;
-  }
+    body {
+        @apply bg-gradient-to-b from-zinc-50 to-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 font-sans transition-colors duration-300;
+    }
 }
 
 /* Glassmorphism utilities */
 .glass-panel {
-  @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/40 dark:border-zinc-800/50 shadow-lg shadow-zinc-200/50 dark:shadow-black/50;
+    @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/40 dark:border-zinc-800/50 shadow-lg shadow-zinc-200/50 dark:shadow-black/50;
 }
 
 .glass-card {
-  @apply bg-white/60 dark:bg-zinc-900/60 backdrop-blur-lg border border-white/50 dark:border-zinc-700/30 hover:bg-white/80 dark:hover:bg-zinc-800/80 transition-all duration-300 shadow-sm hover:shadow-md;
+    @apply bg-white/60 dark:bg-zinc-900/60 backdrop-blur-lg border border-white/50 dark:border-zinc-700/30 hover:bg-white/80 dark:hover:bg-zinc-800/80 transition-all duration-300 shadow-sm hover:shadow-md;
+}
+
+/* Transcript Styles */
+.transcript-content h1,
+.transcript-content h2 {
+    @apply font-bold text-zinc-800 dark:text-zinc-100;
+}
+
+.transcript-content h1 {
+    @apply text-2xl mb-4;
+}
+
+.transcript-content h2 {
+    @apply text-xl mt-8 mb-4;
+}
+
+.transcript-content .dialogue-block {
+    @apply my-6 space-y-4;
+}
+
+.transcript-content .line {
+    @apply flex flex-col md:flex-row gap-2;
+}
+
+.transcript-content .speaker {
+    @apply font-bold text-indigo-600 dark:text-indigo-400 min-w-[3rem];
+}
+
+.transcript-content .text {
+    @apply flex-1 text-zinc-700 dark:text-zinc-300;
+}
+
+.transcript-content .vocab-block {
+    @apply my-6 grid gap-4;
+}
+
+.transcript-content .vocab-item {
+    @apply grid gap-2 md:grid-cols-[150px_150px_1fr] border-b border-zinc-200 dark:border-zinc-800 pb-2 mb-2 last:border-0;
+}
+
+.transcript-content .word {
+    @apply font-bold text-emerald-600 dark:text-emerald-400;
+}
+
+.transcript-content .type {
+    @apply text-sm italic text-zinc-500 dark:text-zinc-500;
+}
+
+.transcript-content .definition {
+    @apply text-zinc-700 dark:text-zinc-300;
 }
