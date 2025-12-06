@@ -5,12 +5,15 @@ import Transcript from './components/Transcript'
 import { ThemeProvider } from './components/ThemeProvider'
 import ThemeToggle from './components/ThemeToggle'
 import Footer from './components/Footer'
+import UserGuideModal from './components/UserGuideModal'
+import { BookOpen } from 'lucide-react'
 // We will import data, assuming it exists (might need to handle if script hasn't finished, but we know it generated episodes.json)
 import episodesData from './data/episodes.json'
 
 function AppContent() {
   const [currentEpisodeId, setCurrentEpisodeId] = useState(episodesData[0]?.id || 0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   const currentEpisode = useMemo(() =>
     episodesData.find(ep => ep.id === currentEpisodeId) || episodesData[0],
@@ -19,6 +22,8 @@ function AppContent() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-300 relative selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
+      <UserGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} />
+
       {/* Light mode ambient background mesh */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden dark:hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-200/30 blur-[100px]" />
@@ -27,6 +32,13 @@ function AppContent() {
 
       {/* Mobile sidebar toggle */}
       <div className="lg:hidden fixed top-4 right-4 z-50 flex gap-2">
+        <button
+          onClick={() => setIsGuideOpen(true)}
+          className="p-2 bg-emerald-600 rounded-full shadow-lg text-white hover:bg-emerald-700 transition-colors"
+          title="User Guide"
+        >
+          <BookOpen size={20} />
+        </button>
         <ThemeToggle />
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -42,7 +54,7 @@ function AppContent() {
         glass-panel border-r border-zinc-200 dark:border-zinc-800/50 flex flex-col
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="p-6 border-b border-zinc-200 dark:border-zinc-800/50 flex justify-between items-center bg-white/50 dark:bg-transparent">
+        <div className="p-6 border-b border-zinc-200 dark:border-zinc-800/50 flex justify-between items-start bg-white/50 dark:bg-transparent">
           <div>
             <div className="flex items-center gap-3 mb-2">
               <img src="./logo.jpg" alt="EnglishPod Logo" className="w-10 h-10 rounded-full object-cover shadow-md" />
@@ -51,6 +63,14 @@ function AppContent() {
               </h1>
             </div>
             <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Learn English through 300+ conversations at various levels.</p>
+
+            <button
+              onClick={() => setIsGuideOpen(true)}
+              className="mt-4 flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800/50 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors"
+            >
+              <BookOpen size={14} />
+              User Manual Guide
+            </button>
           </div>
           <div className="hidden lg:block">
             <ThemeToggle />
