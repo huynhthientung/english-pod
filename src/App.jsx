@@ -45,7 +45,7 @@ function AppContent() {
         <div className="p-6 border-b border-zinc-200 dark:border-zinc-800/50 flex justify-between items-center bg-white/50 dark:bg-transparent">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <img src="/logo.jpg" alt="EnglishPod Logo" className="w-10 h-10 rounded-full object-cover shadow-md" />
+              <img src="./logo.jpg" alt="EnglishPod Logo" className="w-10 h-10 rounded-full object-cover shadow-md" />
               <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 dark:from-indigo-400 dark:to-cyan-400">
                 EnglishPod
               </h1>
