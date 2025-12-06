@@ -16,7 +16,7 @@ const EpisodeList = ({ episodes, currentId, onSelect }) => {
 
     // Virtualization would be good here but simpler implementation first
     return (
-        <div className="flex flex-col h-full bg-zinc-50/50 dark:bg-zinc-900/50">
+        <div className="flex flex-col flex-1 min-h-0 bg-zinc-50/50 dark:bg-zinc-900/50">
             <div className="p-4 border-b border-zinc-200 dark:border-zinc-800/50">
                 <div className="relative">
                     <Search className="absolute left-3 top-2.5 text-zinc-400" size={16} />

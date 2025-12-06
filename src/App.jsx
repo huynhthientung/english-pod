@@ -20,6 +20,20 @@ function AppContent() {
     [currentEpisodeId]
   );
 
+  const handleNextEpisode = () => {
+    const currentIndex = episodesData.findIndex(ep => ep.id === currentEpisodeId);
+    if (currentIndex < episodesData.length - 1) {
+      setCurrentEpisodeId(episodesData[currentIndex + 1].id);
+    }
+  };
+
+  const handlePreviousEpisode = () => {
+    const currentIndex = episodesData.findIndex(ep => ep.id === currentEpisodeId);
+    if (currentIndex > 0) {
+      setCurrentEpisodeId(episodesData[currentIndex - 1].id);
+    }
+  };
+
   return (
     <div className="flex h-screen overflow-hidden bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 transition-colors duration-300 relative selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
       <UserGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} />
@@ -120,7 +134,13 @@ function AppContent() {
         <div className="flex-none z-30 glass-panel border-t border-zinc-200 dark:border-zinc-800/50 backdrop-blur-2xl bg-white/80 dark:bg-zinc-900/95 flex flex-col">
           <div className="p-4 lg:p-6 pb-2 lg:pb-4">
             <div className="max-w-4xl mx-auto">
-              <AudioPlayer episode={currentEpisode} />
+              <AudioPlayer
+                episode={currentEpisode}
+                onNext={handleNextEpisode}
+                onPrev={handlePreviousEpisode}
+                hasNext={episodesData.findIndex(ep => ep.id === currentEpisodeId) < episodesData.length - 1}
+                hasPrev={episodesData.findIndex(ep => ep.id === currentEpisodeId) > 0}
+              />
             </div>
           </div>
 
