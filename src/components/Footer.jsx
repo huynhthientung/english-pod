@@ -52,7 +52,7 @@ export default function Footer() {
                             </div>
 
                             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                                Scan the QR code to support via MoMo
+                                This site simply gathers links and tools to help you learn English. All resources belong to their original creators. If you find it helpful, feel free to support me on Buy Me a Coffee via MoMo
                             </p>
 
                             <div className="flex justify-center">
