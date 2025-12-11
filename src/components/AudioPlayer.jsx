@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Repeat, ArrowRightCircle, FastForward, Rewind } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Repeat, ArrowRightCircle, FastForward, Rewind, Loader2 } from 'lucide-react';
 
 const AudioPlayer = ({ episode, onNext, onPrev, hasNext, hasPrev }) => {
     const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isBuffering, setIsBuffering] = useState(false);
     const [progress, setProgress] = useState(0);
     const [volume, setVolume] = useState(1);
     const [isMuted, setIsMuted] = useState(false);
@@ -18,6 +19,7 @@ const AudioPlayer = ({ episode, onNext, onPrev, hasNext, hasPrev }) => {
     // Initial load effects
     useEffect(() => {
         setIsPlaying(false);
+        setIsBuffering(true);
         setProgress(0);
         setCurrentTime(0);
         if (audioRef.current) {
@@ -101,6 +103,9 @@ const AudioPlayer = ({ episode, onNext, onPrev, hasNext, hasPrev }) => {
                 src={episode.mp3}
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={handleEnded}
+                onWaiting={() => setIsBuffering(true)}
+                onCanPlay={() => setIsBuffering(false)}
+                onLoadStart={() => setIsBuffering(true)}
             />
 
             {/* Progress Bar */}
@@ -145,7 +150,13 @@ const AudioPlayer = ({ episode, onNext, onPrev, hasNext, hasPrev }) => {
                         onClick={togglePlay}
                         className="p-4 bg-indigo-600 dark:bg-white text-white dark:text-zinc-900 rounded-full hover:scale-105 transition-transform shadow-lg shadow-indigo-500/30 dark:shadow-white/10"
                     >
-                        {isPlaying ? <Pause size={28} fill="currentColor" /> : <Play size={28} fill="currentColor" className="ml-1" />}
+                        {isBuffering ? (
+                            <Loader2 size={28} className="animate-spin" />
+                        ) : isPlaying ? (
+                            <Pause size={28} fill="currentColor" />
+                        ) : (
+                            <Play size={28} fill="currentColor" className="ml-1" />
+                        )}
                     </button>
 
                     {/* Next Episode */}
